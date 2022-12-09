@@ -5,7 +5,7 @@ import Data.List
 data Entity = A | B | C | D | E | F | G
             | H | I | J | K | L | M | N 
             | O | P | Q | R | S | T | U 
-            | V | W | X | Y | Z | WL | Unspec
+            | V | W | X | Y | Z | WL | GT | Unspec
      deriving (Eq,Show,Bounded,Enum)
 
 entities :: [Entity]
@@ -21,6 +21,7 @@ goldilocks = G
 littleMook = M
 atreyu     = Y
 wizardland = WL
+goblintown = GT
 
 type OnePlacePred   = Entity -> Bool
 type TwoPlacePred   = Entity -> Entity -> Bool
@@ -70,7 +71,7 @@ defeat = curry (`elem` [(x,y) | x <- entities,
                     ++ [(A,W),(A,V)])
 
 inNP, forNP :: TwoPlacePred
-inNP   = curry (`elem` [(W, WL), (V, WL)])
+inNP   = curry (`elem` [(W, WL), (V, WL), (GT, WL)])
 forNP  = curry (`elem` [(X, E)])
 
 curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
