@@ -116,3 +116,8 @@ intPR :: PR -> Entity -> Entity -> Bool -- adapted from intTV
 -- intTV Loved    = \ x y -> love x y
 intPR NPIn = \ x y -> (inNP x y) -- the functions inNP and forNP are located in Model.hs
 intPR NPFor = \ x y -> (forNP x y)
+
+-- simplified iADJ where first entity is the POV and the second is what is small so a dwarf with reference to a giant
+ADJP :: ADJ -> Entity -> Entity -> Bool
+ADJP ADJsmall = \ x y -> (smallADJ x y)
+ADJP ADJlarge = \ x y -> (largeADJ x y)
