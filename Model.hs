@@ -20,7 +20,7 @@ dorothy    = D
 goldilocks = G 
 littleMook = M
 atreyu     = Y
-wizardland = WL
+wizardland = WL 
 
 type OnePlacePred   = Entity -> Bool
 type TwoPlacePred   = Entity -> Entity -> Bool
@@ -72,6 +72,9 @@ defeat = curry (`elem` [(x,y) | x <- entities,
 inNP, forNP :: TwoPlacePred
 inNP   = curry (`elem` [(W, WL), (V, WL)])
 forNP  = curry (`elem` [(X, E)])
+
+smallADJ = curry (`elem` [(T, B), (T, R)])
+largeADJ = curry (`elem` [(B, T), (R, T)])
 
 curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
 curry3 f x y z = f (x,y,z)
